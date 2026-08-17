@@ -73,7 +73,7 @@ app.post('/v1/chat/completions', async (req, res) => {
     // 💡 CUSTOM INJECTION FOR GLM-5.2 MAX THINKING
     if (nimModel === 'z-ai/glm-5.2') {
       nimRequest.thinking = { type: "enabled" };
-      nimRequest.reasoning_effort = "max";
+      nimRequest.reasoning_effort = "medium";
       nimRequest.max_tokens = max_tokens || 65536; // Allocated buffer for prolonged thinking tokens
     } else if (nimModel.includes('thinking') || nimModel.includes('r1')) {
       // Logic fallback block for DeepSeek/Qwen thinking types
